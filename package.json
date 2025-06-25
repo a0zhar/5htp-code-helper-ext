@@ -1,0 +1,84 @@
+{
+  "name": "5htp-linker-toolbox",
+  "displayName": "5HTP Linker Toolbox",
+  "description": "Syntax highlighting and formatting tools for GNU-style linker scripts and assembly code.",
+  "version": "1.0.0",
+  "icon": "./media/extension-icon.png",
+  "publisher": "a0zhar",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Programming Languages"],
+  "activationEvents": [
+    "onLanguage:linker-script",
+    "onLanguage:asm",
+    "onCommand:5ht_linker_formatter.format",
+    "onCommand:asmFormatter.format"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "linker-script",
+        "aliases": ["GNU Linker Script", "linker-script"],
+        "extensions": [".x", ".ld", ".lds", ".linkerscript"],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "asm",
+        "aliases": ["Assembly", "asm"],
+        "extensions": [".s", ".S", ".asm", ".a51", ".A51"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "linker-script",
+        "scopeName": "source.linker",
+        "path": "./syntaxes/linker.tmLanguage"
+      },
+      {
+        "language": "asm",
+        "scopeName": "source.asm",
+        "path": "./syntaxes/x86_64-asm.tmLanguage"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Linker Script Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/linker-script-dark.json"
+      },
+      {
+  "label": "5HT Assembly Dark",
+  "uiTheme": "vs-dark",
+  "path": "./themes/asm-code-dark.json"
+}
+
+    ],
+    "commands": [
+      {
+        "command": "5ht_linker_formatter.format",
+        "title": "5HT: Format Linker Script"
+      },
+      {
+        "command": "asmFormatter.format",
+        "title": "5HT: Format Assembly Code"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "5ht_linker_formatter.format",
+          "when": "resourceLangId == linker-script",
+          "group": "navigation"
+        },
+        {
+          "command": "asmFormatter.format",
+          "when": "resourceLangId == asm",
+          "group": "navigation"
+        }
+      ]
+    }
+  }
+}

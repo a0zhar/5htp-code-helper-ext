@@ -1,0 +1,49 @@
+{
+    "name": "Linker Script Dark",
+    "type": "dark",
+    "colors": {
+      "editor.background": "#1E1E1E",
+      "editor.foreground": "#D4D4D4"
+    },
+    "tokenColors": [
+      {
+        "scope": "keyword.control.linker",
+        "settings": {
+          "foreground": "#569CD6",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "entity.name.section.linker",
+        "settings": {
+          "foreground": "#4EC9B0"
+        }
+      },
+      {
+        "scope": "constant.numeric.linker",
+        "settings": {
+          "foreground": "#B5CEA8"
+        }
+      },
+      {
+        "scope": "string.quoted.double.linker",
+        "settings": {
+          "foreground": "#CE9178"
+        }
+      },
+      {
+        "scope": "comment.line.number-sign.linker",
+        "settings": {
+          "foreground": "#6A9955",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "punctuation.separator.linker",
+        "settings": {
+          "foreground": "#D4D4D4"
+        }
+      }
+    ]
+  }
+  

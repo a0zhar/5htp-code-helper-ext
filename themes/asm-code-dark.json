@@ -1,0 +1,69 @@
+{
+  "name": "5HT Assembly Dark",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#1E1E1E",
+    "editor.foreground": "#D4D4D4"
+  },
+  "tokenColors": [
+    {
+      "scope": "keyword.mnemonic.asm",
+      "settings": {
+        "foreground": "#C586C0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "variable.register.asm",
+      "settings": {
+        "foreground": "#569CD6"
+      }
+    },
+    {
+      "scope": "constant.numeric.asm",
+      "settings": {
+        "foreground": "#B5CEA8"
+      }
+    },
+    {
+      "scope": "comment.line.semicolon.asm",
+      "settings": {
+        "foreground": "#6A9955",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "entity.name.function.label.asm",
+      "settings": {
+        "foreground": "#D4D4D4",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "string.quoted.double.asm",
+      "settings": {
+        "foreground": "#CE9178"
+      }
+    },
+    {
+      "scope": "keyword.directive.asm",
+      "settings": {
+        "foreground": "#569CD6",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "keyword.macro.asm",
+      "settings": {
+        "foreground": "#D7BA7D",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": "variable.memory.asm",
+      "settings": {
+        "foreground": "#9CDCFE"
+      }
+    }
+  ]
+}

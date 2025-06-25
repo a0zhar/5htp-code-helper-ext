@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>x86-64 Assembly</string>
+  <key>scopeName</key>
+  <string>source.asm</string>
+  <key>fileTypes</key>
+  <array>
+    <string>asm</string>
+    <string>s</string>
+    <string>S</string>
+    <string>nasm</string>
+  </array>
+  <key>patterns</key>
+  <array>
+    <dict><key>include</key><string>#comments</string></dict>
+    <dict><key>include</key><string>#labels</string></dict>
+    <dict><key>include</key><string>#instructions</string></dict>
+    <dict><key>include</key><string>#registers</string></dict>
+    <dict><key>include</key><string>#numbers</string></dict>
+    <dict><key>include</key><string>#strings</string></dict>
+    <dict><key>include</key><string>#directives</string></dict>
+    <dict><key>include</key><string>#macros</string></dict>
+    <dict><key>include</key><string>#memoryReferences</string></dict>
+  </array>
+  <key>repository</key>
+  <dict>
+
+    <key>comments</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>;.*$</string>
+          <key>name</key>
+          <string>comment.line.semicolon.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>labels</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>^\s*([a-zA-Z_][\w\.]*):</string>
+          <key>name</key>
+          <string>entity.name.function.label.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>instructions</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>\b(mov|add|sub|mul|div|imul|idiv|inc|dec|cmp|jmp|je|jne|jg|jl|jge|jle|call|ret|push|pop|lea|and|or|xor|not|shl|shr|nop|movaps|addps|fld|fstp|fadd|fsqrt|stosb|scasb|lodsb|rep|in|out|lgdt|lidt|int|iret|hlt|cli|sti|syscall|sysret|stc|clc|cmc|pshufd|pshuflw|pshufhw|pshufb|loop|jcxz|jecxz)\b</string>
+          <key>name</key>
+          <string>keyword.mnemonic.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>registers</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>\b(r[0-9]{1,2}[bwd]?|e?[abcd]x|[abcd][hl]|[sd]i|[sb]p|rip|rsp|rbp|xmm[0-9]{1,2}|ymm[0-9]{1,2}|zmm[0-9]{1,2}|mm[0-7]|cr[0-4]|dr[0-7]|es|cs|ss|ds|fs|gs)\b</string>
+          <key>name</key>
+          <string>variable.register.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>numbers</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>\b(0x[0-9a-fA-F]+|0b[01]+|\d+)\b</string>
+          <key>name</key>
+          <string>constant.numeric.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>strings</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>begin</key>
+          <string>"</string>
+          <key>end</key>
+          <string>"</string>
+          <key>name</key>
+          <string>string.quoted.double.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>directives</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>\b(section|global|globl|extern|align|type|size|ascii|asciz|string|byte|word|long|quad|db|dw|dd|dq)\b</string>
+          <key>name</key>
+          <string>keyword.directive.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>macros</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>match</key>
+          <string>%define|%macro|%endmacro|%include|%ifdef|%ifndef|%endif</string>
+          <key>name</key>
+          <string>keyword.macro.asm</string>
+        </dict>
+      </array>
+    </dict>
+
+    <key>memoryReferences</key>
+    <dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>begin</key>
+          <string>\[</string>
+          <key>end</key>
+          <string>\]</string>
+          <key>name</key>
+          <string>variable.memory.asm</string>
+          <key>patterns</key>
+          <array>
+            <dict>
+              <key>match</key>
+              <string>\b(rel|rip|rbp|rsp|r[0-9]+|e?[abcd]x|[abcd][hl]|[sd]i|[sb]p|0x[0-9a-fA-F]+|\d+)\b</string>
+              <key>name</key>
+              <string>variable.register.asm</string>
+            </dict>
+            <dict>
+              <key>match</key>
+              <string>[+\-]</string>
+              <key>name</key>
+              <string>keyword.operator.arithmetic.asm</string>
+            </dict>
+          </array>
+        </dict>
+      </array>
+    </dict>
+
+  </dict>
+</dict>
+</plist>
